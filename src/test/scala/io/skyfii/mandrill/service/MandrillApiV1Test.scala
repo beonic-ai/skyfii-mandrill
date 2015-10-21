@@ -76,7 +76,7 @@ class MandrillApiV1Test extends FunSpec with ShouldMatchers {
 
         it("sends many messages and decodes responses") {
           new Fixtures {
-            val emails = (1 to 50) map (n => s"user${n}@skyfii.com") toSet
+            val emails = (1 to 50) map (n => s"user$n@skyfii.com") toSet
             val recipients = emails map (email => new Recipient(email, None, ToType.to)) toVector
 
             val message = new Message("<p>test html content</p>", None, "test many", "noreply@skyfii.com", None, recipients)
@@ -86,6 +86,27 @@ class MandrillApiV1Test extends FunSpec with ShouldMatchers {
             (recipientResponses map (_.email) toSet) === emails
 
             every(recipientResponses map (_.status)) shouldBe "queued"
+          }
+        }
+      }
+
+      describe("#subAccountInfo") {
+        it("fails when sub account doesn't exist") {
+          new Fixtures {
+            val id = UUID.randomUUID().toString
+            val response = wait(api.subAccountInfo(id))
+            response.isLeft shouldBe true
+          }
+        }
+
+        it("retrieves and decodes sub account info") {
+          new Fixtures {
+            val id = UUID.randomUUID().toString
+            val response = wait(api.subAccountAdd(id, Some("Test")))
+            response.isRight shouldBe true
+
+            val responseInfo = wait(api.subAccountInfo(id))
+            responseInfo.isRight shouldBe true
           }
         }
       }

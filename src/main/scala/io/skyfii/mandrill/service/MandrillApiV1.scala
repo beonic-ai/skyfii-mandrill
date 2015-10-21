@@ -60,6 +60,16 @@ class MandrillApiV1(apiKey: String, apiUrlPrefix: String = "https://mandrillapp.
   }
 
   /**
+   * Retrieves the details for the sub account
+   */
+  def subAccountInfo(id: String): AsyncResponse[SubAccountResponse] = {
+    val subAccountInfoRequest = SubAccountRequest(key = apiKey, id = id)
+
+    postJsonEntity[SubAccountRequest, SubAccountResponse](subAccounts / "info.json", subAccountInfoRequest)
+  }
+
+
+  /**
    * Add a new sub account to the main account
    */
   def subAccountAdd(id: String, name: Option[String] = None, notes: Option[String] = None, quota: Option[Int] = None): AsyncResponse[SubAccountResponse] = {
