@@ -1,4 +1,4 @@
-# skyfii-mandril
+# skyfii-mandrill
 
 Yet another scala wrapper for the Mandrill V1 API.
 
