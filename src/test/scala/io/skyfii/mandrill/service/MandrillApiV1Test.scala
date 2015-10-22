@@ -12,6 +12,7 @@ import scala.concurrent.{Await, Future}
 class MandrillApiV1Test extends FunSpec with ShouldMatchers {
 
   trait Fixtures {
+    implicit val ec = scala.concurrent.ExecutionContext.global
     val time = new DateTime(2015, 4, 1, 0, 0)
     val testKey = "add-your-key-here"
     val api = new MandrillApiV1(testKey)

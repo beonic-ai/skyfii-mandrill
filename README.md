@@ -9,3 +9,11 @@ Currently it partially supports the following Mandrill APIs:
   - users
   - messages
   - subaccounts
+
+## Getting Started
+
+When using sbt add the following to your build file:
+
+```scala
+libraryDependencies += "io.skyfii" %% "skyfii-mandrill" % "0.0.2"
+```

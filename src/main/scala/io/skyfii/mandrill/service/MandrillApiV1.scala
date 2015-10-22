@@ -7,14 +7,15 @@ import io.skyfii.mandrill.support.MandrillCodecs._
 import argonaut.Argonaut._
 import argonaut._
 import com.ning.http.client.Response
-import dispatch.Defaults._
 import dispatch._
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 
-import scala.concurrent.Future
+import scala.concurrent.{ExecutionContext, Future}
 
-class MandrillApiV1(apiKey: String, apiUrlPrefix: String = "https://mandrillapp.com/api/1.0") {
+class MandrillApiV1(apiKey: String,
+                    apiUrlPrefix: String = "https://mandrillapp.com/api/1.0")
+                   (implicit ex:ExecutionContext) {
 
   type AsyncResponse[T] = Future[Either[Error, T]]
 
@@ -72,7 +73,10 @@ class MandrillApiV1(apiKey: String, apiUrlPrefix: String = "https://mandrillapp.
   /**
    * Add a new sub account to the main account
    */
-  def subAccountAdd(id: String, name: Option[String] = None, notes: Option[String] = None, quota: Option[Int] = None): AsyncResponse[SubAccountResponse] = {
+  def subAccountAdd(id: String,
+                    name: Option[String] = None,
+                    notes: Option[String] = None,
+                    quota: Option[Int] = None): AsyncResponse[SubAccountResponse] = {
     val subAccountAddRequest = SubAccountRequest(key = apiKey,
       id = id,
       name = name,
