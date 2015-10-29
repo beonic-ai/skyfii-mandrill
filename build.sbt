@@ -4,7 +4,7 @@ name := "skyfii-mandrill"
 
 organization := "io.skyfii"
 
-version := "0.0.4"
+version := "0.0.5"
 
 scalaVersion := "2.11.7"
 
@@ -16,6 +16,12 @@ libraryDependencies ++= Seq(
   "org.slf4j" % "slf4j-simple" % "1.7.12"withSources() withJavadoc(),
   "org.scalatest" %% "scalatest" % "2.2.1" % "test" withSources() withJavadoc()
 )
+
+lazy val compileScalastyle = taskKey[Unit]("compileScalastyle")
+
+compileScalastyle := org.scalastyle.sbt.ScalastylePlugin.scalastyle.in(Compile).toTask("").value
+
+(compile in Compile) <<= (compile in Compile) dependsOn compileScalastyle
 
 publishMavenStyle := true
 
