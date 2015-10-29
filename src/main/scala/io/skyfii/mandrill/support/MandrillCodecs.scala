@@ -179,5 +179,14 @@ object MandrillCodecs {
       "notes",
       "custom_quota")
 
+  implicit def webHookMessageJson: CodecJson[WebHookMessage] =
+    casecodec8(WebHookMessage.apply, WebHookMessage.unapply)(
+      "ts", "subject", "email", "sender", "tags", "state", "metadata", "subaccount")
+
+  implicit def webHookRejectJson: CodecJson[WebHookReject] =
+    casecodec3(WebHookReject.apply, WebHookReject.unapply)("email", "reason", "detail")
+
+  implicit def webHookEventJson: CodecJson[WebHookEvent] =
+    casecodec6(WebHookEvent.apply, WebHookEvent.unapply)("event", "msg", "reject", "type", "action", "ts")
 }
 
