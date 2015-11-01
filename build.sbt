@@ -13,7 +13,7 @@ libraryDependencies ++= Seq(
   "joda-time" % "joda-time" % "2.8.2" withSources() withJavadoc(),
   "org.joda" % "joda-convert" % "1.2" withSources() withJavadoc(),
   "net.databinder.dispatch" %% "dispatch-core" % "0.11.2" withSources() withJavadoc(),
-  "org.slf4j" % "slf4j-simple" % "1.7.12"withSources() withJavadoc(),
+  "org.slf4j" % "slf4j-api" % "1.7.12" withSources() withJavadoc(),
   "org.scalatest" %% "scalatest" % "2.2.1" % "test" withSources() withJavadoc()
 )
 
