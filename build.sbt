@@ -4,7 +4,7 @@ name := "skyfii-mandrill"
 
 organization := "io.skyfii"
 
-version := "0.0.5"
+version := "0.0.7"
 
 scalaVersion := "2.11.7"
 
