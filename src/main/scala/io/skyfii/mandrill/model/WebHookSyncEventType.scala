@@ -1,6 +1,6 @@
 package io.skyfii.mandrill.model
 
-object WebHookSyncEventType extends Enumeration {
-  type WebHookSyncEventType = Value
-  val whitelist, blacklist = Value
+object WebHookSyncEventType {
+  val WhiteList = "whitelist"
+  val BlackList = "blacklist"
 }

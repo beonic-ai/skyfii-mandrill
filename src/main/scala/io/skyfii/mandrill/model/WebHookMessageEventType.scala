@@ -1,6 +1,13 @@
 package io.skyfii.mandrill.model
 
-object WebHookMessageEventType extends Enumeration {
-  type WebHookMessageEventType = Value
-  val send, deferral, hard_bounce, soft_bounce, open, click, spam, unsub, reject = Value
+object WebHookMessageEventType {
+  val Send = "send"
+  val Deferral = "deferral"
+  val HardBounce = "hard_bounce"
+  val SoftBounce = "soft_bounce"
+  val Open = "open"
+  val Click = "click"
+  val Spam = "spam"
+  val Unsubscribe = "unsub"
+  val Reject = "reject"
 }
