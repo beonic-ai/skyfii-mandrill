@@ -51,7 +51,7 @@ object MandrillCodecs {
       "text" := m.text,
       "subject" := m.subject,
       "from_email" := m.from_email,
-      "fromName" := m.from_name,
+      "from_name" := m.from_name,
       "to" := m.to,
       "headers" := m.headers,
       "important" := m.important,
