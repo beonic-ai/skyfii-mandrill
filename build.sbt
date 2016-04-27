@@ -4,12 +4,12 @@ name := "skyfii-mandrill"
 
 organization := "io.skyfii"
 
-version := "0.0.9"
+version := "0.1.0"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
 libraryDependencies ++= Seq(
-  "io.argonaut" %% "argonaut" % "6.0.4" withSources() withJavadoc(),
+  "io.argonaut" %% "argonaut" % "6.1" withSources() withJavadoc(),
   "joda-time" % "joda-time" % "2.8.2" withSources() withJavadoc(),
   "org.joda" % "joda-convert" % "1.2" withSources() withJavadoc(),
   "net.databinder.dispatch" %% "dispatch-core" % "0.11.2" withSources() withJavadoc(),

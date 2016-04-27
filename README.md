@@ -15,7 +15,7 @@ Currently it partially supports the following Mandrill APIs:
 When using sbt add the following to your build file:
 
 ```scala
-libraryDependencies += "io.skyfii" %% "skyfii-mandrill" % "0.0.2"
+libraryDependencies += "io.skyfii" %% "skyfii-mandrill" % "0.1.0"
 ```
 
 ### Test your API key
